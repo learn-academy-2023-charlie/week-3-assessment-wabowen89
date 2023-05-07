@@ -64,6 +64,7 @@ Researched answer:
     An implicit return is when a function returns a value without the return statement written in to it. This can be accomplished when the curly braces are dropped from the function syntax.
 
 4. Ruby blocks:
-    
+    Ruby Blocks are short, anonymous functions. These can be passed into methods and are enclosed in a "do/end" statement. They can also be enclosed with curly braces. They are capbale of taking in multiple arguments which are defined between two pipe characters.
 
 5. Ruby hashes:
+    A Ruby Hash is a collection of unique key value pairs. They are similar to arrays, but are indexed by the key of the object, rather than a standard numerical value. They are created by using the new class method (ie: birthdays = Hash.new("birthdays")).
