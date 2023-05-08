@@ -20,11 +20,11 @@
   // Process:
     // Function Name: fibSequence 
     // Create the function with a paramenter labeled "number"
-    // Create create fibArray array variable with 2 elements
-    // Create a for loop to iterate for the length of the input number
+    // Create fibArray array variable with 2 elements
+    // Iterate for the length of the input number minus 2 (possible tool: for loop)
     // For each iteration, add current index value and next index value together
-    // Use .push to add the combined values to the existing array
-    // return the completed array
+    // Add the combined values to the existing array (possible tool: .push() method)
+    // return the completed fibArray
   // Expected Output:[1, 1, 2, 3, 5, 8]
                   // [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
 
@@ -51,19 +51,15 @@ describe("fibSequence", () => {
 //   ReferenceError: fibSequence is not defined
 
 
-
 // b) Create the function that makes the test pass.
-
-
 
 const fibSequence = (number) => {
   let fibArray =[1, 1]
 
   for (let i = 0; i < number - 2; i++){
-
     fibArray.push(fibArray[i] + fibArray[i + 1])
-
   }
+
   return fibArray
 }
 
@@ -73,15 +69,7 @@ const fibSequence = (number) => {
 //   ✓ determines the length of the required array and outputs the Fibonacci sequence up to given length (2 ms)
 
 
-// Refactor
-// Pseudo Code:
-  // Input: Number
-  // Output: An array
-  // Process:
-    // Function Name: fibSequence 
-    // 
-  // Expected Output:[1, 1, 2, 3, 5, 8]
-                  // [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+// No refactor necessary
 
 
 // --------------------2) Create a function that takes in an object and returns an array of the values sorted from least to greatest.
@@ -141,12 +129,12 @@ describe("sortLeastGreatest", () => {
 
 // b) Create the function that makes the test pass.
 
-const sortLeastGreatest = (object) => {
-  const valArray = Object.values(object)
-  return valArray.sort(function(a,b) { 
-    return a - b 
-  })
-}
+// const sortLeastGreatest = (object) => {
+//   const valArray = Object.values(object)
+//   return valArray.sort((a,b) => { 
+//     return a - b 
+//   })
+// }
 
 // Success
 // PASS  ./code-challenges.test.js
@@ -162,12 +150,22 @@ const sortLeastGreatest = (object) => {
   // Input: an object
   // Output: An array
   // Process:
-    // Function Name: sortLeastGreatest 
-    // Create function with an object as a parameter
-    // Convert the object values into an array (possible tool: Object.value() method)
-    // 
+    // Consolidate lines
+    // Combine Object.values to .sort fucntion to create a self-executing function
+    // Return both on the same line
   // Expected Output: [15, 15, 20, 30, 30, 60, 90]
                    // [10, 15, 20, 45, 60, 65, 100]
+
+const sortLeastGreatest = (object) => {
+  return Object.values(object).sort((a,b) => a-b)
+}
+
+// Success
+// PASS  ./code-challenges.test.js
+// fibSequence
+//   ✓ determines the length of the required array and outputs the Fibonacci sequence up to given length (1 ms)
+// sortLeastGreatest
+//   ✓ returns a sorted array of the object values from least to greatest (1 ms)
 
 // --------------------3) Create a function that takes in an array and returns an array of the accumulating sum. An empty array should return an empty array.
 
@@ -216,14 +214,14 @@ describe("addArraySums", () => {
 
 // b) Create the function that makes the test pass.
 
-const addArraySums = (array) => {
-  let tempNum = 0
-  return array.map(value => {
-    tempNum = tempNum + value
-    return tempNum
-  })
+// const addArraySums = (array) => {
+//   let tempNum = 0
+//   return array.map(value => {
+//     tempNum = tempNum + value
+//     return tempNum
+//   })
 
-}
+// }
 
 // Success
 // PASS  ./code-challenges.test.js
@@ -237,3 +235,28 @@ const addArraySums = (array) => {
 
 
 // Refactor
+
+// Pseudo Code:
+  // Input: An array
+  // Output: A new array of the accumulated sums
+  // Process:
+    // Consolidate lines
+    // Combine tempNum addition to .map to create a self-executing function
+    // return .map() with cleaner function on one line
+  // Expected Output:[100, 83, 60, 51]
+                  // [250, 161, 261, 165]
+                  // []
+
+const addArraySums = (array) => {
+  let tempNum = 0
+  return array.map(value => tempNum += value)
+}
+
+// Success
+// PASS  ./code-challenges.test.js
+// fibSequence
+//   ✓ determines the length of the required array and outputs the Fibonacci sequence up to given length (1 ms)
+// sortLeastGreatest
+//   ✓ returns a sorted array of the object values from least to greatest
+// addArraySums
+//   ✓ returns new array of accumulated sums (1 ms)
